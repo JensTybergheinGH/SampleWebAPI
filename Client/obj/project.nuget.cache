@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "oowXuBgP+FP4RNSl53Supx3uJap+qsn5/rSJpQ7J19vdkqMW7BjN++CImJt369dIYuXhFr331A41b5byndtCUg==",
+  "success": true,
+  "projectFilePath": "D:\\Youtube Channel\\HTML Tutorial\\other topic\\Web API\\How to Create a Web API with ASP.NET CORE and .NET 6 (c# for beginners)\\SampleApi\\Client\\Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\deshw\\.nuget\\packages\\bootstrap\\5.3.2\\bootstrap.5.3.2.nupkg.sha512"
+  ],
+  "logs": []
+}

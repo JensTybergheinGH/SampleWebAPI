@@ -1,0 +1,183 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+     <div class="row">
+        <div class="col-md-2">
+            Name
+        </div>
+        <div class="col-md-4">
+            <input type="text" style="margin: 5px;" class="form-control" id="txtName" placeholder="Name">
+        </div>
+        <div class="col-md-2">
+            Price
+        </div>
+        <div class="col-md-4">
+            <input type="number" style="margin: 5px;" class="form-control" placeholder="Price" id="txtPrice">
+        </div>
+    </div>
+    <div class="row" style="margin: 5px;">
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="return Create()">Add</button>
+                &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" onclick="return Update()">Update</button>
+                &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+</div>
+
+<table class="table table-hover" id="tblPatients">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody id="tblBody">
+    </tbody>
+</table>
+
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+        <script>
+
+    $(document).ready(function () {
+        GetDetails();
+    });
+
+    let ProductId = '';
+
+    function onEdit(id) {
+        ProductId = id;
+          var options = {};
+            options.url = "http://localhost:5140/api/Products/" + id;
+            options.type = "GET";
+            options.success = function (msg) {
+                console.log(msg);               
+                 if (msg!== undefined && msg !== null) {                    
+                    $("#txtName").val(msg.name);
+                    $("#txtPrice").val(msg.price);                   
+                }
+            },
+                options.error = function () {
+                    console.log("Error while calling the Web API!");
+                };
+            $.ajax(options);
+    }
+
+    function onDelete(id) {
+        if (window.confirm("Are you sure to delete this record?")) {
+            var options = {};
+            options.url = "http://localhost:5140/api/Products/" + id;
+            options.type = "DELETE";         
+            options.success = function (msg) {
+                console.log(msg);
+                if (msg!== undefined && msg !== null) {
+                     clear()
+                    GetDetails();
+                    alert('Record deleted');
+                }                
+            },
+                options.error = function () {
+                    console.log("Error while calling the Web API!");
+                };
+            $.ajax(options);
+        }
+
+    }
+
+    function GetDetails() {
+        var options = {};
+        options.url = "http://localhost:5140/api/Products";
+        options.type = "GET";       
+        options.contentType = "application/json";
+        options.dataType = "html";
+
+        options.success = function (msg) {
+            $('#tblBody').html('');
+              if (msg!== undefined && msg !== null) {
+                const dt = JSON.parse(msg);
+                for (let i = 0; i < dt.length; i++) {
+                    var row = "<tr>";
+                    row += "<td> " + parseInt(i + 1) + "</td>";                   
+                    row += "<td> " + dt[i].name + "</td>"; row += "<td> " + dt[i].price + "</td>"; 
+                    row += "<td> <button class='btn btn-primary'  onclick='return onEdit(" + dt[i].id + ")'>Edit</button>&nbsp;|&nbsp;<button class='btn btn - danger' onclick='return onDelete(" + dt[i].id + ")'>Delete</button> </td>";
+                    $('#tblBody').append(row);               
+                    }
+              }
+        },
+            options.error = function () {
+                console.log("Error while calling the Web API!");
+            };
+        $.ajax(options);
+    }
+
+    function Create() {
+
+            var options = {};
+            options.url = "http://localhost:5140/api/Products";
+            options.type = "POST";
+            var obj = {};
+            obj.Name = $("#txtName").val();
+            obj.Price = $("#txtPrice").val();
+            options.data = JSON.stringify(obj);
+            options.contentType = "application/json";
+            options.dataType = "html";
+
+            options.success = function (msg) {
+                if (msg!== undefined && msg !== null) {
+                    clear()
+                    GetDetails();
+                    alert('Record added')
+                }
+                
+            },
+                options.error = function () {
+                    console.log("Error while calling the Web API!");
+                };
+            $.ajax(options);
+
+    }
+
+     function Update() {
+            var options = {};
+            options.url = "http://localhost:5140/api/Products/" + ProductId;
+            options.type = "PUT";
+            var obj = {};
+            obj.Id = ProductId;
+            obj.Name = $("#txtName").val();
+            obj.Price = $("#txtPrice").val();
+            options.data = JSON.stringify(obj);
+            options.contentType = "application/json";
+            options.dataType = "html";
+
+            options.success = function (msg) {
+                console.log(msg);
+
+                 if (msg!== undefined && msg !== null) {
+                     clear()
+                    GetDetails();
+                    alert('Record updated')
+                }
+            },
+                options.error = function () {
+                    console.log("Error while calling the Web API!");
+                };
+            $.ajax(options);
+        }
+
+
+        function clear(){
+            $("#txtName").val('');
+            $("#txtPrice").val('');
+        }
+    </script>
