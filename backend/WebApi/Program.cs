@@ -32,10 +32,6 @@ app.UseAuthorization();
 app.MapControllers();
 app.UseRouting();
 
-//app.UseEndpoints(endpoints =>
-//{
-//	endpoints.MapHub<NotificationMessageModel>("/notify");
-//});
 app.MapHub<NotificationMessageModel>("/notify");
 
 app.Run();
