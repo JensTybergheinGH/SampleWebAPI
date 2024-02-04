@@ -5,15 +5,18 @@ using WebApi.Model;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+	[Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
         private readonly DataContext _dataContext;
-        public ProductsController(DataContext dataContext)
+		private readonly WebSocketManager _webSocketManager;
+
+		public ProductsController(DataContext dataContext, WebSocketManager webSocketManager)
         {
             _dataContext = dataContext;
-        }
+			_webSocketManager = webSocketManager;
+		}
 
         [HttpGet]
         public async Task<IEnumerable<Product>> Get()
@@ -55,7 +58,9 @@ namespace WebApi.Controllers
             _dataContext.Entry(product).State = EntityState.Modified;
             await _dataContext.SaveChangesAsync();
 
-            return Ok();
+			await _webSocketManager.BroadcastMessageAsync("NewProduct", product);
+
+			return Ok();
         }
 
         [HttpDelete("{id}")]
