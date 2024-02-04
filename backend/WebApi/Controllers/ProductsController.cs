@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Model;
+using WebApi.Services;
 
 namespace WebApi.Controllers
 {
@@ -10,12 +12,12 @@ namespace WebApi.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly DataContext _dataContext;
-		private readonly WebSocketManager _webSocketManager;
+		private readonly IHubContext<NotificationMessageModel> _hubContext;
 
-		public ProductsController(DataContext dataContext, WebSocketManager webSocketManager)
+		public ProductsController(DataContext dataContext, IHubContext<NotificationMessageModel> hubContext)
         {
             _dataContext = dataContext;
-			_webSocketManager = webSocketManager;
+			_hubContext = hubContext;
 		}
 
         [HttpGet]
@@ -50,20 +52,36 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Put(int id, Product product)
-        {
-            if (id == 0)
-                return BadRequest();
+		public async Task<ActionResult> Put(int id, Product product)
+		{
+			try
+			{
+				if (id != product.Id)
+				{
+					return BadRequest("ID mismatch between route parameter and product data.");
+				}
 
-            _dataContext.Entry(product).State = EntityState.Modified;
-            await _dataContext.SaveChangesAsync();
+				var existingProduct = await _dataContext.products.FindAsync(id);
+				if (existingProduct == null)
+				{
+					return NotFound("Product not found.");
+				}
 
-			await _webSocketManager.BroadcastMessageAsync("NewProduct", product);
+				_dataContext.Entry(existingProduct).CurrentValues.SetValues(product);
+				await _dataContext.SaveChangesAsync();
 
-			return Ok();
-        }
+				await _hubContext.Clients.All.SendAsync("ProductChanged", product);
 
-        [HttpDelete("{id}")]
+				return Ok();
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Error updating product: {ex.Message}");
+				return StatusCode(StatusCodes.Status500InternalServerError, "Internal Server Error");
+			}
+		}
+
+		[HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> Delete(int id)

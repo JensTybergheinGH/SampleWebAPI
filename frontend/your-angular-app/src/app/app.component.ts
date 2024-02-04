@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SignalrService } from './signalr.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'your-angular-app';
+
+  constructor(public signalRService: SignalrService) { }
+  ngOnInit() {
+    this.signalRService.startConnection();
+    this.signalRService.productChangedDataListener();
+  }
 }
