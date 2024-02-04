@@ -24,3 +24,33 @@ D:\Youtube Channel\HTML Tutorial\other topic\Web API\How to Create a Web API wit
 D:\Youtube Channel\HTML Tutorial\other topic\Web API\How to Create a Web API with ASP.NET CORE and .NET 6 (c# for beginners)\SampleApi\Client\obj\Debug\net6.0\Client.pdb
 D:\Youtube Channel\HTML Tutorial\other topic\Web API\How to Create a Web API with ASP.NET CORE and .NET 6 (c# for beginners)\SampleApi\Client\obj\Debug\net6.0\Client.genruntimeconfig.cache
 D:\Youtube Channel\HTML Tutorial\other topic\Web API\How to Create a Web API with ASP.NET CORE and .NET 6 (c# for beginners)\SampleApi\Client\obj\Debug\net6.0\ref\Client.dll
+C:\Sourcetree\angular-websockets\Client\bin\Debug\net6.0\appsettings.Development.json
+C:\Sourcetree\angular-websockets\Client\bin\Debug\net6.0\appsettings.json
+C:\Sourcetree\angular-websockets\Client\bin\Debug\net6.0\Client.staticwebassets.runtime.json
+C:\Sourcetree\angular-websockets\Client\bin\Debug\net6.0\Client.exe
+C:\Sourcetree\angular-websockets\Client\bin\Debug\net6.0\Client.deps.json
+C:\Sourcetree\angular-websockets\Client\bin\Debug\net6.0\Client.runtimeconfig.json
+C:\Sourcetree\angular-websockets\Client\bin\Debug\net6.0\Client.dll
+C:\Sourcetree\angular-websockets\Client\bin\Debug\net6.0\Client.pdb
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.AssemblyInfoInputs.cache
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.AssemblyInfo.cs
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.csproj.CoreCompileInputs.cache
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.MvcApplicationPartsAssemblyInfo.cache
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.RazorAssemblyInfo.cache
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.RazorAssemblyInfo.cs
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\staticwebassets\msbuild.Client.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\staticwebassets\msbuild.build.Client.props
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Client.props
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Client.props
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\staticwebassets.build.json
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\staticwebassets.development.json
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\scopedcss\bundle\Client.styles.css
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\scopedcss\projectbundle\Client.bundle.scp.css
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.dll
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\refint\Client.dll
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.pdb
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\Client.genruntimeconfig.cache
+C:\Sourcetree\angular-websockets\Client\obj\Debug\net6.0\ref\Client.dll

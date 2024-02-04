@@ -337,26 +337,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\deshw\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\tyber\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Youtube Channel\\HTML Tutorial\\other topic\\Web API\\How to Create a Web API with ASP.NET CORE and .NET 6 (c# for beginners)\\SampleApi\\Client\\Client.csproj",
+      "projectUniqueName": "C:\\Sourcetree\\angular-websockets\\Client\\Client.csproj",
       "projectName": "Client",
-      "projectPath": "D:\\Youtube Channel\\HTML Tutorial\\other topic\\Web API\\How to Create a Web API with ASP.NET CORE and .NET 6 (c# for beginners)\\SampleApi\\Client\\Client.csproj",
-      "packagesPath": "C:\\Users\\deshw\\.nuget\\packages\\",
-      "outputPath": "D:\\Youtube Channel\\HTML Tutorial\\other topic\\Web API\\How to Create a Web API with ASP.NET CORE and .NET 6 (c# for beginners)\\SampleApi\\Client\\obj\\",
+      "projectPath": "C:\\Sourcetree\\angular-websockets\\Client\\Client.csproj",
+      "packagesPath": "C:\\Users\\tyber\\.nuget\\packages\\",
+      "outputPath": "C:\\Sourcetree\\angular-websockets\\Client\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\deshw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\tyber\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -364,7 +357,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -407,7 +399,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
